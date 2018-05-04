@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ titulo }}</title>
-</head>
-<body>
-    <h1>Hello World</h1>
+{% extends 'inc/layout.html' %}
+
+{% block content %}
+<div class="row">
     {% for post in posts %}
-        {% url "detail" slug=post.slug %}
-        <h2>({{ post.id }}) <a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a></h2>
+        <div class="col s12 m12">
+            <div class="icon-block">
+                <h5>{{ post.titulo }}</h5>
+                <p class="light">{{ post.contenido|slice:":255" }}{% if post.contenido|length > 255 %}...{% endif %}</p>
+                <a class="waves-effect waves-light btn-small" href="{{ post.get_absolute_url }}">Ver Más</a>
+            </div>
+        </div>
     {% endfor %}
-</body>
-</html>
+</div>
+{% endblock %}

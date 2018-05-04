@@ -17,7 +17,7 @@ def post_detail(request, slug=None):
     #return HttpResponse("<h1>Post home!</h1>")
     query = get_object_or_404(Post, slug=slug)
     context = {
-        "titulo": "Detalle del post",
+        "titulo": query.titulo,
         "post": query
     }
     return render(request, "post.html", context)
