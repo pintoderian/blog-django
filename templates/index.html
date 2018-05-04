@@ -9,7 +9,7 @@
 <body>
     <h1>Hello World</h1>
     {% for post in posts %}
-        {% url "detail" id=post.id %}
+        {% url "detail" slug=post.slug %}
         <h2>({{ post.id }}) <a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a></h2>
     {% endfor %}
 </body>

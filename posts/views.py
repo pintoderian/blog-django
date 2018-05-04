@@ -6,16 +6,16 @@ from .models import Post
 # Create your views here.
 def post_home(request):
     #return HttpResponse("<h1>Post home!</h1>")
-    query = Post.objects.all()
+    query = Post.objects.all().order_by("-id")
     context = {
         "titulo": "Blog con Django",
         "posts": query
     }
     return render(request, "index.html", context)
 
-def post_detail(request, id=None):
+def post_detail(request, slug=None):
     #return HttpResponse("<h1>Post home!</h1>")
-    query = get_object_or_404(Post, id=id)
+    query = get_object_or_404(Post, slug=slug)
     context = {
         "titulo": "Detalle del post",
         "post": query
