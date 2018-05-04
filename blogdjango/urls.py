@@ -21,5 +21,5 @@ from posts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello', views.post_home, name='home')
+    path('', views.post_home, name='home')
 ]
