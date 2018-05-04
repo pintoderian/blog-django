@@ -2,11 +2,16 @@
 
 {% block content %}
 <div class="row">
-    <div class="col s12 m12">
-        <h5>{{ post.titulo }}</h5>
-        <p>
-            {{ post.contenido }}
-        </p>
+    <div class="col s12 m12 item-blog">
+        <div class="icon-block">
+            {% if post.imagen %}
+            <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="responsive-img">
+            {% endif %}
+            <h5><b>{{ post.titulo }}</b> <small>hace {{ post.timestamp|timesince }}</small></h5>
+            <div class="light">
+                {{ post.contenido }}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

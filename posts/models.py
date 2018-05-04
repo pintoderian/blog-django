@@ -5,6 +5,7 @@ from django.db.models.signals import pre_save
 from django.utils.text import slugify
 class Post(models.Model):
     titulo = models.CharField(max_length=150)
+    imagen = models.FileField(null=True,blank=True)
     slug = models.SlugField(unique=True)
     contenido = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
@@ -15,7 +16,9 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse("detail", kwargs={"slug": self.slug})
-        
+
+    class Meta:
+        ordering = ["-timestamp", "-actualizado"]
 #creando slug en el modelo
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.titulo)
