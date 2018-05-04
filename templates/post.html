@@ -8,8 +8,6 @@
 </head>
 <body>
     <h1>Hello World</h1>
-    {% for post in posts %}
-        <h2>({{ post.id }}) <a href="{% url "detail" id=post.id %}">{{ post.titulo }}</a></h2>
-    {% endfor %}
+    <h2>{{ post.titulo }}</h2>
 </body>
 </html>
