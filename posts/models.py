@@ -1,9 +1,10 @@
 from django.db import models
-
+from django.conf import settings
 from django.urls import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 class Post(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=150)
     imagen = models.FileField(null=True,blank=True)
     slug = models.SlugField(unique=True)

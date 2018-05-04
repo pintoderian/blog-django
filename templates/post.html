@@ -8,6 +8,7 @@
             <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="responsive-img">
             {% endif %}
             <h5><b>{{ post.titulo }}</b> <small>hace {{ post.timestamp|timesince }}</small></h5>
+            <div class="autor">Autor: {{ post.user }}</div>
             <div class="light">
                 {{ post.contenido }}
             </div>
